@@ -62,3 +62,77 @@
 // document.getElementById("result").innerHTML += animal.info(); 
 
 let array = [];
+
+class Person {
+  name;
+  age;
+  img;
+
+  constructor(name, age, img) {
+      this.name = name;
+      this.age = age;
+      this.img = img;
+
+      array.push(this);
+      console.table(this);
+
+      // console.table(array);
+  }
+
+  info() {
+      return `<div class="card" style="width: 18rem;">
+      <img src="${this.img}" class="card-img-top h-80 w-100" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${this.name} ${this.age}</h5>
+        <p class="card-text"></p>
+      </div>
+    </div>`;
+  }
+}
+class animal extends Person {
+  type;
+  weight;
+  color;
+
+  constructor(name, age, img, type, weight, color){
+    super(name, age, img);
+    this.type = type;
+    this.weight = weight;
+    this.color = color;
+  }
+
+  info() {
+    return `${super.info()} <p> ${this.type} ${this.weight} ${this.color} </p>`;
+  }
+}
+
+class car extends Person {
+  brand;
+  model;
+  type;
+  weight;
+  color;
+
+  constructor(name, age, img, brand, model, type, weight, color) {
+      super(name, age, img);
+      this.brand = brand;
+      this.model = model;
+      this.type = type;
+      this.weight = weight;
+      this.color = color;
+  }
+
+  info() {
+      return `${super.info()}<p> ${this.brand} ${this.model} ${this.type} ${this.weight} ${this.color} </p>`;
+  }
+}
+
+
+new Person("Mary", "29", "https://cdn.pixabay.com/photo/2021/10/16/06/13/girl-6714026__340.jpg");
+new animal("Tiger", "3 y.o.", "https://cdn.pixabay.com/photo/2018/03/26/20/49/tiger-3264048__340.jpg", "Amur Tiger", "120 kg", "striped");
+new car("Car","1 year","https://cdn.pixabay.com/photo/2012/11/02/13/02/car-63930__480.jpg", "Ford", "Mustang", "sport", "1 T", "black");
+
+
+for (let i = 0; i < array.length; i++) {
+    document.getElementById("result").innerHTML += array[i].info();
+}
