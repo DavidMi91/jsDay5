@@ -79,12 +79,15 @@ class Person {
       // console.table(array);
   }
 
-  info() {
+  infoStart() {
       return `<div class="card" style="width: 18rem;">
       <img src="${this.img}" class="card-img-top h-80 w-100" alt="...">
       <div class="card-body">
         <h5 class="card-title">${this.name} ${this.age}</h5>
-        <p class="card-text"></p>
+        `;
+  }
+  infoEnd(){
+    return `
       </div>
     </div>`;
   }
@@ -101,8 +104,8 @@ class animal extends Person {
     this.color = color;
   }
 
-  info() {
-    return `${super.info()} <p> ${this.type} ${this.weight} ${this.color} </p>`;
+  infoStart() {
+    return `${super.infoStart()} <p class="card-text">${this.type} ${this.weight} ${this.color}</p> `;
   }
 }
 
@@ -122,8 +125,8 @@ class car extends Person {
       this.color = color;
   }
 
-  info() {
-      return `${super.info()}<p> ${this.brand} ${this.model} ${this.type} ${this.weight} ${this.color} </p>`;
+  infoStart() {
+      return `${super.infoStart()}<p class="card-text"> ${this.brand} ${this.model} ${this.type} ${this.weight} ${this.color} </p>`;
   }
 }
 
@@ -134,5 +137,5 @@ new car("Car","1 year","https://cdn.pixabay.com/photo/2012/11/02/13/02/car-63930
 
 
 for (let i = 0; i < array.length; i++) {
-    document.getElementById("result").innerHTML += array[i].info();
+    document.getElementById("result").innerHTML += array[i].infoStart() + array[i].infoEnd();
 }
