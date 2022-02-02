@@ -5,16 +5,14 @@ class Car {
   model;
   img;
   type;
-  color;
   age;
   weight;
 
-  constructor(brand, model, img, type, color, age, weight) {
+  constructor(brand, model, img, type, age, weight) {
       this.brand = brand;
       this.model = model;
       this.img = img;
       this.type = type;
-      this.color = color;
       this.age = age;
       this.weight = weight;
 
@@ -23,11 +21,13 @@ class Car {
   }
 
   infoStart() {
-      return `<div class="card" style="width: 18rem;">
+      return `<div class="card me-5 mb-2" style="width: 18rem;">
       <img src="${this.img}" class="card-img-top" style="height:180px;" alt="...">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">${this.brand} ${this.model}</h5>
-        <p>${this.type} <br> ${this.color} <br> ${this.age} <br> ${this.weight}</p>
+        <hr>
+        <p style="color:green;">${this.type} <br> ${this.age} <br> ${this.weight}</p>
+        <hr style="width:70%; margin-left:15%">
         `;
   }
   infoEnd(){
@@ -42,15 +42,15 @@ class motorbike extends Car {
   fuelType;
   trunk;
 
-  constructor(brand, model, img, type, color, age, weight, numberOfWheels, fuelType, trunk){
-    super(brand, model, img, type, color, age, weight);
+  constructor(brand, model, img, type, age, weight, numberOfWheels, fuelType, trunk){
+    super(brand, model, img, type, age, weight);
     this.numberOfWheels = numberOfWheels;
     this.fuelType = fuelType;
     this.trunk = trunk;
   }
 
   infoStart() {
-    return `${super.infoStart()} <p class="card-text">${this.numberOfWheels} <br> ${this.fuelType} <br> ${this.trunk}</p> `;
+    return `${super.infoStart()} <p style="font-style:italic;" class="card-text">${this.numberOfWheels} <br> ${this.fuelType} <br> ${this.trunk}</p> `;
   }
 }
 
@@ -79,11 +79,13 @@ class Animal {
   }
 
   infoStart() {
-      return `<div class="card me-5" style="width: 18rem;">
+      return `<div class="card me-5 mb-2" style="width: 18rem;">
       <img src="${this.img}" class="card-img-top" style="height:180px;" alt="...">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">${this.name} ${this.breed}</h5>
-        <p>${this.age} <br> ${this.weight} <br> ${this.color} <br></p>
+        <hr>
+        <p style="color:green;">${this.age} <br> ${this.weight} <br> ${this.color} <br></p>
+        <hr style="width:70%; margin-left:15%">
         `;
   }
   infoEnd(){
@@ -106,7 +108,7 @@ class fish extends Animal {
   }
 
   infoStart() {
-    return `${super.infoStart()} <p class="card-text">${this.typeOfWater} <br> ${this.poisonous} <br> ${this.mainRegion}</p> `;
+    return `${super.infoStart()} <p style="font-style:italic;" class="card-text">${this.typeOfWater} <br> ${this.poisonous} <br> ${this.mainRegion}</p> `;
   }
 }
 
@@ -136,11 +138,13 @@ class Person {
   }
 
   infoStart() {
-      return `<div class="card me-5" style="width: 18rem;">
+      return `<div class="card me-5 mb-2" style="width: 18rem;">
       <img src="${this.img}" class="card-img-top" style="height:180px;" alt="...">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">${this.name} ${this.age}</h5>
-        <p>${this.hobbies} <br> ${this.height} <br> ${this.nationality} <br></p>
+        <hr>
+        <p style="color:green;">${this.hobbies} <br> ${this.height} <br> ${this.nationality} <br></p>
+        <hr style="width:70%; margin-left:15%">
         `;
   }
   infoEnd(){
@@ -163,19 +167,16 @@ class profession extends Person {
   }
 
   infoStart() {
-    return `${super.infoStart()} <p class="card-text">${this.jobPosition} <br> ${this.fieldOfWork} <br> ${this.experienceYrs}</p> `;
+    return `${super.infoStart()} <p style="font-style:italic;" class="card-text">${this.jobPosition} <br> ${this.fieldOfWork} <br> ${this.experienceYrs}</p> `;
   }
 }
 
 
-new profession("Mary", "29", "https://cdn.pixabay.com/photo/2021/10/16/06/13/girl-6714026__340.jpg", "Reading", "177cm", "Austrian", "Junior Web Developer", "Web Development", "1 Year");
-new fish("Lucky", "1 y.o.", "https://images.pexels.com/photos/3626111/pexels-photo-3626111.jpeg", "Clownfish", "300g", "Striped", "Saltwater", "Kinda poisonous","Red Sea and Pacific Oceans");
-new motorbike("Yamaha","XV950","https://images.pexels.com/photos/4577731/pexels-photo-4577731.jpeg", "Chopper", "Black", "10 y.o.", "250kg", "Two wheels", "Gasoline", "No Trunk");
+new profession("Mary,", "29", "https://images.pexels.com/photos/1428962/pexels-photo-1428962.jpeg", "Hobby: reading", "177cm", "Austrian", "Junior Web Developer", "Web Development", "1 Year Experience");
+new fish('"Lucky",', "1 y.o.", "https://images.pexels.com/photos/3626111/pexels-photo-3626111.jpeg", "Clownfish", "300g", "Striped", "Saltwaterfish", "Kinda poisonous","Home: Red Sea and Pacific Ocean");
+new motorbike("Yamaha","XV950","https://images.pexels.com/photos/4577731/pexels-photo-4577731.jpeg", "Chopper", "10 y.o.", "250kg", "Two wheels", "Gasoline", "No Trunk");
 
 
 for (let i = 0; i < array.length; i++) {
     document.getElementById("result").innerHTML += array[i].infoStart() + array[i].infoEnd();
 }
-
-
-// brand, model, img, type, color, age, weight, numberOfWheels, fuelType, trunk
