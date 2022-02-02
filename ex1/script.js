@@ -20,7 +20,6 @@ let person = {
       </div>`;
     }
 }
-​
 let car = {
     brand: "Ford",
     model: "Mustang",
@@ -38,7 +37,6 @@ let car = {
       </div>`;
     }
 }
-
 let animal = {
     name: "Tiger",
     breed: "Amur Tiger",
@@ -57,8 +55,6 @@ let animal = {
     }
 }
 
-var res = document.getElementById("result");
-
-res.innerHTML = person.info();
-res.innerHTML = car.info();
-res.innerHTML = animal.info();
+document.getElementById("result").innerHTML += person.info(); 
+document.getElementById("result").innerHTML += car.info(); 
+document.getElementById("result").innerHTML += animal.info(); 
