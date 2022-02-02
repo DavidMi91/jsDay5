@@ -17,7 +17,6 @@ class Car {
       this.weight = weight;
 
       array.push(this);
-      console.table(this);
   }
 
   infoStart() {
@@ -75,7 +74,6 @@ class Animal {
     this.weight = weight;
 
       array.push(this);
-      console.table(this);
   }
 
   infoStart() {
@@ -134,12 +132,11 @@ class Person {
       this.nationality = nationality;
 
       array.push(this);
-      console.table(this);
   }
 
   infoStart() {
       return `<div class="card me-5 mb-2" style="width: 18rem;">
-      <img src="${this.img}" class="card-img-top" style="height:180px;" alt="...">
+      <img src="${this.img}" class="card-img-top" style="height:180px;" alt="${this.name}">
       <div class="card-body text-center">
         <h5 class="card-title">${this.name} ${this.age}</h5>
         <hr>
